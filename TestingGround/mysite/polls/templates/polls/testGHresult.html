@@ -1,0 +1,7 @@
+<h1>
+Testing GitHub API
+</h1>
+Utilisateur concerné: {{usergit}}
+{% for repo in repos %}
+    <li><a href="/repo/{{ repo.name }}">{{ repo.name }}</a></li>
+{% endfor %}
