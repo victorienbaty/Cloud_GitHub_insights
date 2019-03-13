@@ -47,8 +47,10 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 def testGH(request):
-    GITHUB_USER="AresManu"
-    yoko = requests.get('https://api.github.com/users/%s/repos' % GITHUB_USER)
+    gihubuser=request.POST['username']
+    #GITHUB_USER="AresManu"
+    yoko = requests.get('https://api.github.com/users/%s/repos' % gihubuser)
     contextGH = {}
     contextGH['repos'] = yoko.json()
+    contextGH['usergit'] = gihubuser
     return render(request, 'polls/testGH.html', contextGH)

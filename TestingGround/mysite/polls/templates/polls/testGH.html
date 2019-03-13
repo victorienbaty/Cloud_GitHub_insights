@@ -1,6 +1,17 @@
 <h1>
 Testing GitHub API
+</h1>
+Utilisateur concerné: {{usergit}}
 {% for repo in repos %}
     <li><a href="/repo/{{ repo.name }}">{{ repo.name }}</a></li>
 {% endfor %}
-</h1>
+
+
+<h2>
+  Testing authentication
+</h2>
+<form action="{% url 'polls:testGH' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="username">
+<input type="submit" value="GH">
+</form>
