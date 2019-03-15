@@ -53,6 +53,7 @@ def testGHresult(request):
     gihubuser=request.POST['username']
     #GITHUB_USER="AresManu"
     yoko = requests.get('https://api.github.com/users/%s/repos' % gihubuser)
+
     contextGH = {}
     contextGH['repos'] = yoko.json()
     contextGH['usergit'] = gihubuser
