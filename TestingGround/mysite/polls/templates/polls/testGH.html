@@ -1,0 +1,9 @@
+
+<h2>
+  Testing authentication
+</h2>
+<form action="{% url 'polls:testGHresult' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="username">
+<input type="submit" value="GH">
+</form>
