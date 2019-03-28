@@ -5,4 +5,7 @@ Utilisateur concerné: {{usergit}}
 {% for repo in repos %}
     <li><a href="/repo/{{ repo.name }}">{{ repo.name }}</a></li>
 {% endfor %}
-<a href="https://github.com/login/oauth/authorize?client_id=cdfbe6c5153b91acf782">Click here</a> to begin!</a>
+<a href="https://github.com/login/oauth/authorize?
+client_id=cdfbe6c5153b91acf782
+&login={{usergit}}
+&scope=repo">Click here</a> to begin!</a>
