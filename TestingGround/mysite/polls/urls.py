@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:question_id>/vote/', views.vote, name='vote'),
     path('testGH',views.testGH, name='testGH'),
     path('testGHresult',views.testGHresult, name='testGHresult'),
+    path('OrganizationPage',views.OrganizationPage, name='Page des organisations'),
 ]
