@@ -65,9 +65,9 @@ def OrganizationPage(request):
     yokaaa=requests.post('https://github.com/login/oauth/access_token?', params=payload).text.split("&")
     yokaa = yokaaa[0].split("=")
     yoki = yokaa[1]
-    yoka = requests.get('https://api.github.com/user/orgs?access_token=' + yoki).text
+    yoka = requests.get('https://api.github.com/user/orgs?access_token=' + yoki)
     contextGH = {}
     contextGH['usergit'] = request.session.get('OurUser')
     contextGH['codeauth'] = codeauth
-    contextGH['yoka'] = yoka
+    contextGH['yoka'] = yoka.json()
     return render(request, 'polls/OrganizationPage.html',contextGH)
