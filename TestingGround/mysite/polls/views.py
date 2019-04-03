@@ -52,7 +52,6 @@ def testGH(request):
 def testGHresult(request):
     gihubuser=request.POST['username']
     request.session['OurUser']=gihubuser
-    #GITHUB_USER="AresManu"
     yoko = requests.get('https://api.github.com/users/%s/repos' % request.session['OurUser'])
 
     contextGH = {}
@@ -62,16 +61,13 @@ def testGHresult(request):
 
 def OrganizationPage(request):
     codeauth=request.GET['code']
-    yoka=requests.post('https://github.com/login/oauth/access_token?\
-    client_id=cdfbe6c5153b91acf782\
-    &client_secret=196d6896116217b246d4e9aee4107aa389a39ea8\
-    &code='+codeauth)
-
-    #yoka = requests.get('https://api.github.com/user/orgs?access_token=49224c3a02e30fd5a8929e123396ecced5b3e979')
-    # Token OAUTH 49224c3a02e30fd5a8929e123396ecced5b3e979
+    payload = {'client_id': 'cdfbe6c5153b91acf782', 'client_secret': '196d6896116217b246d4e9aee4107aa389a39ea8', 'code': codeauth}
+    yokaaa=requests.post('https://github.com/login/oauth/access_token?', params=payload).text.split("&")
+    yokaa = yokaaa[0].split("=")
+    yoki = yokaa[1]
+    yoka = requests.get('https://api.github.com/user/orgs?access_token=' + yoki).text
     contextGH = {}
     contextGH['usergit'] = request.session.get('OurUser')
     contextGH['codeauth'] = codeauth
-    contextGH['stateauth'] = stateauth
     contextGH['yoka'] = yoka
     return render(request, 'polls/OrganizationPage.html',contextGH)
