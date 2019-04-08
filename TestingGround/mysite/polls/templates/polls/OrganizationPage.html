@@ -2,18 +2,14 @@
 <h2>
   Organization page {{usergit}}
 </h2>
-<a> {{codeauth}}</a>
 <br>
 
 {% for org in yoka %}
     <li><a>{{ org.login }}</a>
       <ul>
-        {{yoku}}
-      <!--
       {% for member in yoku %}
       <li><a>{{member.login}}</a></li>
       {% endfor %}
-      -->
       </ul>
     </li>
 
