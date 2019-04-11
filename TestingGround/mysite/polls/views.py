@@ -61,17 +61,37 @@ def testGHresult(request):
 
 def OrganizationPage(request):
     codeauth=request.GET['code']
+    # Récupération du token avec les infos et le code récupéré précédemment.
     payload = {'client_id': 'cdfbe6c5153b91acf782', 'client_secret': '196d6896116217b246d4e9aee4107aa389a39ea8', 'code': codeauth}
     yokaaa=requests.post('https://github.com/login/oauth/access_token?', params=payload).text.split("&")
     yokaa = yokaaa[0].split("=")
     yoki = yokaa[1]
+
+    #Stockage du token dans une variable de session (accessible plus facilement)
     request.session['TOKEN']=yoki
+
+    # Utilisation du token pour récupérer les noms d'org de l'user identifié
     yoka = requests.get('https://api.github.com/user/orgs?access_token=' + request.session['TOKEN'])
     contextGH = {'usergit' : request.session.get('OurUser'),
     'codeauth' : codeauth,
     'yoka' : yoka.json()
     }
 
+    # Requete pour récupérer les membres liés aux orgs
     yoku = requests.get('https://api.github.com/orgs/vitoisanorganization/members?access_token=' + request.session['TOKEN'])
     contextGH['yoku'] = yoku.json()
+
+
+    # Requete pour récupérer les repos liés aux users
+    list=[]
+    listrepo=[]
+    for x in range(len(yoku.json())):
+        list.append(yoku.json()[x]['login'])
+
+    for i in list:
+        yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
+        for x in range (len(yokr)):
+            listrepo.append(yokr[x]['name'])
+    contextGH['yokb']=listrepo
+
     return render(request, 'polls/OrganizationPage.html',contextGH)
