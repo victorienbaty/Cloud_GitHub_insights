@@ -1,0 +1,39 @@
+h1, h2 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #6A6A6A;
+  font-weight: normal;
+  text-decoration: underline solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+b{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #6A6A6A;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: italic;
+font-variant: normal;
+text-transform: none;
+}
+#demo {
+background-image: url("/static/background.png");
+background-size:cover;
+
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #6A6A6A;
+font-weight: normal;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}

@@ -1,7 +1,14 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
 
-<h2>
+
+<h1>
   Organization page {{usergit}}
-</h2>
+</h1>
 <br>
 {% for org in yoka %}
     <li><b>{{ org.login }}</b>
@@ -17,3 +24,7 @@
       </ul>
     </li>
 {% endfor %}
+
+
+
+</html>
