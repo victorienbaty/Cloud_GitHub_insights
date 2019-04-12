@@ -1,3 +1,10 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
