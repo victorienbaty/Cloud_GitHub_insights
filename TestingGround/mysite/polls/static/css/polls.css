@@ -1,3 +1,7 @@
+/*
+Generateur de css: https://html-css-js.com/css/generator/font/
+generateur de background: https://trianglify.io/
+*/
 h1, h2 {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 22px;
@@ -19,6 +23,18 @@ color: #6A6A6A;
 font-weight: 700;
 text-decoration: none solid rgb(68, 68, 68);
 font-style: italic;
+font-variant: normal;
+text-transform: none;
+}
+ul{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #393939;
+font-weight: normal;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
 font-variant: normal;
 text-transform: none;
 }
