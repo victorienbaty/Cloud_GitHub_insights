@@ -3,13 +3,17 @@
   Organization page {{usergit}}
 </h2>
 <br>
-{{yokb}}
 {% for org in yoka %}
     <li><b>{{ org.login }}</b>
       <ul>
-      {% for member in yoku %}
-      <li><a>{{member.login}}</a></li>
-      {% endfor %}
+        {% for key,value in yokb.items %}
+        <li><a>{{key}} </a></li>
+          {% for repo in value %}
+          <ul>
+            {{repo}}
+          </ul>
+          {% endfor %}
+        {% endfor %}
       </ul>
     </li>
 {% endfor %}

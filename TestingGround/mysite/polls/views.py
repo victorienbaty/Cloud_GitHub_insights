@@ -84,14 +84,18 @@ def OrganizationPage(request):
 
     # Requete pour récupérer les repos liés aux users
     list=[]
-    listrepo=[]
+    dict={}
     for x in range(len(yoku.json())):
         list.append(yoku.json()[x]['login'])
 
+
+
     for i in list:
         yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
+        list2=[]
         for x in range (len(yokr)):
-            listrepo.append(yokr[x]['name'])
-    contextGH['yokb']=listrepo
+            list2.append(yokr[x]['name'])
+        dict[i]=list2
+    contextGH['yokb']=dict
 
     return render(request, 'polls/OrganizationPage.html',contextGH)
