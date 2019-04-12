@@ -5,10 +5,10 @@
   <link rel="stylesheet" href="{% static 'css/polls.css' %}">
 </head>
 
-<div class="topnav">
+<!--<div class="topnav">
   <a class="active" href="{% url 'polls:testGH' %}">Home</a>
   <a href="#news">News</a>
-</div>
+</div>-->
 
 <h1>
   Organization page {{usergit}}
@@ -21,7 +21,7 @@
         <li><a>{{key}} </a></li>
           {% for repo in value %}
           <ul>
-            {{repo}}
+          <li> {{repo}}</li>
           </ul>
           {% endfor %}
         {% endfor %}
