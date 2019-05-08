@@ -16,6 +16,15 @@
 <br>
 {% for org in yoka %}
     <li><b>{{ org.login }}</b>
+<!--
+        {% for key,value in yokl.items %}
+          {% for repo in value %}
+          <ul>
+          <li> {{repo}}</li>
+          </ul>
+          {% endfor %}
+        {% endfor %}
+      <b>MEMBRES</b>
       <ul>
         {% for key,value in yokb.items %}
         <li><a>{{key}} </a></li>
@@ -26,9 +35,12 @@
           {% endfor %}
         {% endfor %}
       </ul>
+-->
     </li>
 {% endfor %}
 
+<h3>DEBUG CORNER</h3>
+{{DEBUG}}
 
 
 </html>

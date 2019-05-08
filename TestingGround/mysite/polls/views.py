@@ -78,23 +78,52 @@ def OrganizationPage(request):
     }
 
     # Requete pour récupérer les membres liés aux orgs
-    yoku = requests.get('https://api.github.com/orgs/vitoisanorganization/members?access_token=' + request.session['TOKEN'])
-    contextGH['yoku'] = yoku.json()
+    listorgmember=[]
+    dictorgmember={}
+    for x in range(len(yoka.json())):
+        listorgmember.append(yoka.json()[x]['login'])
+
+    for i in listorgmember:
+        yoku = requests.get('https://api.github.com/orgs/'+i+'/members?access_token=' + request.session['TOKEN']).json()
+        list2=[]
+        for x in range (len(yoku)):
+            list2.append(yoku[x]['login'])
+        dictorgmember[i]=list2
+    contextGH['yoku'] = dictorgmember
 
 
     # Requete pour récupérer les repos liés aux users
-    list=[]
-    dict={}
-    for x in range(len(yoku.json())):
-        list.append(yoku.json()[x]['login'])
+    # list=[]
+    # dict={}
+    # for x in range(len(yoku.json())):
+    #     list.append(yoku.json()[x]['login'])
+    #
+    # for i in list:
+    #     yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
+    #     list2=[]
+    #     for x in range (len(yokr)):
+    #         list2.append(yokr[x]['name'])
+    #     dict[i]=list2
+    #
+    # contextGH['yokb']=dict
 
-    for i in list:
-        yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
+    #requete pour avoir les repo de l'orga
+    listorgrepo=[]
+    dictorgrepo={}
+    for x in range(len(yoka.json())):
+        listorgrepo.append(yoka.json()[x]['login'])
+
+    for i in listorgrepo:
+        yokl = requests.get('https://api.github.com/orgs/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
         list2=[]
-        for x in range (len(yokr)):
-            list2.append(yokr[x]['name'])
-        dict[i]=list2
+        for x in range (len(yokl)):
+            list2.append(yokl[x]['name'])
+        dictorgrepo[i]=list2
 
-    contextGH['yokb']=dict
+    contextGH['yokl']=dictorgrepo
+
+
+    #DEBUG
+    contextGH['DEBUG']=dictorgmember
 
     return render(request, 'polls/OrganizationPage.html',contextGH)
