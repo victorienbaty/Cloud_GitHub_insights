@@ -91,21 +91,33 @@ def OrganizationPage(request):
         dictorgmember[i]=list2
     contextGH['yoku'] = dictorgmember
 
+    # Liste l'ensemble des utilisateurs liés à des orga en évitant les doublons
+    listofmembers=[]
+    for key,val in dictorgmember.items():
+        for i in val:
+            if i not in listofmembers:
+                listofmembers.append(i)
+
 
     # Requete pour récupérer les repos liés aux users
-    # list=[]
-    # dict={}
-    # for x in range(len(yoku.json())):
-    #     list.append(yoku.json()[x]['login'])
-    #
-    # for i in list:
-    #     yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
-    #     list2=[]
-    #     for x in range (len(yokr)):
-    #         list2.append(yokr[x]['name'])
-    #     dict[i]=list2
-    #
-    # contextGH['yokb']=dict
+    dictusersrepo={}
+    for i in listofmembers:
+        yokr = requests.get('https://api.github.com/users/'+i+'/repos?access_token=' + request.session['TOKEN'] ).json()
+        list2=[]
+        for x in range (len(yokr)):
+            list2.append(yokr[x]['name'])
+        dictusersrepo[i]=list2
+
+    
+    finaldict={}
+    for key,val in dictorgmember.items():
+        print("---"+key+"---")
+        finaldict[key]=dictorgmember[key]
+        for key,val in finaldict[key].items():
+            print("---"+key+"---")
+
+
+    print(finaldict)
 
     #requete pour avoir les repo de l'orga
     listorgrepo=[]
@@ -124,6 +136,6 @@ def OrganizationPage(request):
 
 
     #DEBUG
-    contextGH['DEBUG']=dictorgmember
+    contextGH['DEBUG']=dictorgrepo
 
     return render(request, 'polls/OrganizationPage.html',contextGH)
