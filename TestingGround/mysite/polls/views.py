@@ -108,13 +108,16 @@ def OrganizationPage(request):
             list2.append(yokr[x]['name'])
         dictusersrepo[i]=list2
 
-    
+    # Créer un dict avec la bonne arborescence
     finaldict={}
     for key,val in dictorgmember.items():
         print("---"+key+"---")
-        finaldict[key]=dictorgmember[key]
-        for key,val in finaldict[key].items():
-            print("---"+key+"---")
+        finaldict[key]=dict()
+        for val in dictorgmember[key]:
+            finaldict[key][val]=dictusersrepo[val]
+            print(val)
+
+
 
 
     print(finaldict)
@@ -136,6 +139,6 @@ def OrganizationPage(request):
 
 
     #DEBUG
-    contextGH['DEBUG']=dictorgrepo
+    contextGH['DEBUG']=finaldict
 
     return render(request, 'polls/OrganizationPage.html',contextGH)
