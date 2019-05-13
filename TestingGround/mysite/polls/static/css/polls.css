@@ -1,0 +1,83 @@
+/*
+Generateur de css: https://html-css-js.com/css/generator/font/
+generateur de background: https://trianglify.io/
+*/
+h1, h2 {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 22px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #6A6A6A;
+font-weight: normal;
+text-decoration: underline solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+b{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 16px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #6A6A6A;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: italic;
+font-variant: normal;
+text-transform: none;
+}
+ul{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #393939;
+font-weight: normal;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+#demo {
+background-image: url("/static/background2.png");
+background-size:cover;
+
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #6A6A6A;
+font-weight: normal;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #E0E0E0;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color:  #6A6A6A;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #C0C0C0;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}

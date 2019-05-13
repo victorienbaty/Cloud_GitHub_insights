@@ -1,0 +1,15 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
+<h2>
+  Testing authentication
+</h2>
+<form action="{% url 'polls:testGHresult' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="username">
+<input type="submit" value="GH">
+</form>

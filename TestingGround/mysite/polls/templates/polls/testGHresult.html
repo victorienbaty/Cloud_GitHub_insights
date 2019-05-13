@@ -1,0 +1,18 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
+<h1>
+Testing GitHub API
+</h1>
+Utilisateur concerné: {{usergit}}
+{% for repo in repos %}
+    <li><a href="/repo/{{ repo.name }}">{{ repo.name }}</a></li>
+{% endfor %}
+<a href="https://github.com/login/oauth/authorize?
+client_id=cdfbe6c5153b91acf782
+&login={{usergit}}
+&scope=repo,user,read:org">Click here</a> to begin!</a>

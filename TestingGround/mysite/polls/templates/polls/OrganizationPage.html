@@ -1,0 +1,46 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
+<!--<div class="topnav">
+  <a class="active" href="{% url 'polls:testGH' %}">Home</a>
+  <a href="#news">News</a>
+</div>-->
+
+<h1>
+  Organization page {{usergit}}
+</h1>
+<br>
+{% for org in yoka %}
+    <li><b>{{ org.login }}</b>
+<!--
+        {% for key,value in yokl.items %}
+          {% for repo in value %}
+          <ul>
+          <li> {{repo}}</li>
+          </ul>
+          {% endfor %}
+        {% endfor %}
+      <b>MEMBRES</b>
+      <ul>
+        {% for key,value in yokb.items %}
+        <li><a>{{key}} </a></li>
+          {% for repo in value %}
+          <ul>
+          <li> {{repo}}</li>
+          </ul>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+-->
+    </li>
+{% endfor %}
+
+<h3>DEBUG CORNER</h3>
+{{DEBUG}}
+
+
+</html>
